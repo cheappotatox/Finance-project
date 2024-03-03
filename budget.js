@@ -42,19 +42,19 @@ document.addEventListener("DOMContentLoaded", function() {
         const item = document.getElementById(`${type}-item`).value;
         const budget = parseFloat(document.getElementById(`${type}-amount`).value);
         const actual = parseFloat(document.getElementById(`${type}-actual`).value);
-
+    
         if (item.trim() === "" || isNaN(budget) || isNaN(actual) || budget < 0 || actual < 0) {
             alert("Please enter a valid item, planned budget, and actual amount.");
             return;
         }
-
+    
         const difference = actual - budget;
-
+    
         // Save item to local storage
         saveItemToStorage(type, { item, budget, actual });
-
+    
         const listItem = document.createElement("li");
-
+    
         // Create delete button
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
@@ -63,39 +63,42 @@ document.addEventListener("DOMContentLoaded", function() {
             updateTotal(type, -actual, totalElement, differenceElement, actualElement);
             removeItemFromStorage(type, item);
         });
-
+    
         listItem.innerHTML = `${item}: Budget: $${budget.toFixed(2)} | Actual: $${actual.toFixed(2)} | Difference: $${difference.toFixed(2)}`;
         listItem.appendChild(deleteButton);
         list.appendChild(listItem);
-
+    
         updateTotal(type, actual, totalElement, differenceElement, actualElement);
-
+    
         document.getElementById(`${type}-item`).value = "";
         document.getElementById(`${type}-amount`).value = "";
         document.getElementById(`${type}-actual`).value = "";
-    }
+    
+        // Reload the page
+        location.reload();
+    }    
 
     function updateTotal(type, amount, totalElement, differenceElement, actualElement) {
         if (type === "income") {
             incomeTotal += amount;
             incomeTotal = Math.max(incomeTotal, 0); // Ensure total is not negative
             totalElement.textContent = `$${incomeTotal.toFixed(2)}`;
-            differenceElement.textContent = `$${(parseFloat(document.getElementById("income-amount").value) - incomeTotal).toFixed(2)}`;
-            actualElement.textContent = `$${(incomeTotal || 0).toFixed(2)}`; // Display 0 if incomeTotal is NaN or undefined
+            differenceElement.textContent = `$${(incomeTotal - parseFloat(document.getElementById("income-amount").value)).toFixed(2)}`;
+            actualElement.textContent = `$${incomeTotal.toFixed(2)}`;
         } else if (type === "fixed") {
             fixedTotal += amount;
             fixedTotal = Math.max(fixedTotal, 0); // Ensure total is not negative
             totalElement.textContent = `$${fixedTotal.toFixed(2)}`;
-            differenceElement.textContent = `$${(parseFloat(document.getElementById("fixed-amount").value) - fixedTotal).toFixed(2)}`;
-            actualElement.textContent = `$${(fixedTotal || 0).toFixed(2)}`; // Display 0 if fixedTotal is NaN or undefined
+            differenceElement.textContent = `$${(fixedTotal - parseFloat(document.getElementById("fixed-amount").value)).toFixed(2)}`;
+            actualElement.textContent = `$${fixedTotal.toFixed(2)}`;
         } else if (type === "variable") {
             variableTotal += amount;
             variableTotal = Math.max(variableTotal, 0); // Ensure total is not negative
             totalElement.textContent = `$${variableTotal.toFixed(2)}`;
-            differenceElement.textContent = `$${(parseFloat(document.getElementById("variable-amount").value) - variableTotal).toFixed(2)}`;
-            actualElement.textContent = `$${(variableTotal || 0).toFixed(2)}`; // Display 0 if variableTotal is NaN or undefined
+            differenceElement.textContent = `$${(variableTotal - parseFloat(document.getElementById("variable-amount").value)).toFixed(2)}`;
+            actualElement.textContent = `$${variableTotal.toFixed(2)}`;
         }
-    }    
+    }
 
     function saveItemToStorage(type, itemData) {
         let items = JSON.parse(localStorage.getItem(type)) || [];
@@ -129,16 +132,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function calculateTotal(type, list, totalElement, differenceElement, actualElement) {
         let total = 0;
-        const plannedBudget = parseFloat(document.getElementById(`${type}-amount`).value) || 0; // Default to 0 if the planned budget is not a valid number
-
+        let difference = 0;
+        let actualTotal = 0;
+    
         list.querySelectorAll("li").forEach(item => {
             const actual = parseFloat(item.textContent.match(/Actual: \$([0-9.]+)/)[1]);
-            total += actual;
+            const budget = parseFloat(item.textContent.match(/Budget: \$([0-9.]+)/)[1]);
+            total += budget; // Add to the total budget
+            actualTotal += actual; // Add to the total actual
+            difference += actual - budget; // Calculate the difference
         });
-
-        total = Math.max(total, 0); // Ensure total is not negative
+    
+        total = Math.max(total, 0); // Ensure total budget is not negative
+        actualTotal = Math.max(actualTotal, 0); // Ensure total actual is not negative
+        difference = actualTotal - total; // Calculate total difference
+    
         totalElement.textContent = `$${total.toFixed(2)}`;
-        differenceElement.textContent = `$${(total - plannedBudget).toFixed(2)}`;
-        actualElement.textContent = `$${(total || 0).toFixed(2)}`; // Display 0 if total is NaN or undefined
-    }
+        differenceElement.textContent = `$${difference.toFixed(2)}`;
+        actualElement.textContent = `$${actualTotal.toFixed(2)}`;
+    }    
 });
