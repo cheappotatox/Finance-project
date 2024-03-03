@@ -128,7 +128,8 @@ document.addEventListener("DOMContentLoaded", function() {
         let items = JSON.parse(localStorage.getItem(type)) || [];
         items = items.filter(itemData => itemData.item !== item);
         localStorage.setItem(type, JSON.stringify(items));
-    }
+        location.reload(); // Reload the page
+    }    
 
     function calculateTotal(type, list, totalElement, differenceElement, actualElement) {
         let total = 0;
