@@ -43,23 +43,28 @@ const quizData = {
         },
         8: {
             question: "Which of the following is an example of an appreciating asset?",
+            options: ["It decreases", "It stays the same", "It increases", "It fluctuates"],
+            answer: "It increases"
+        },
+        9: {
+            question: "What happens to the value of an asset that appreciates?",
             options: ["Car", "House", "Smartphone", "Clothing"],
             answer: "House"
         },
         // Add more questions for this category
     },
     "Interest and Borrowing": {
-        9: {
+        10: {
             question: "What is the formula to calculate simple interest?",
             options: ["Principal * Rate * Time", "Principal * Time / Rate", "Rate * Time / Principal", "Rate * Principal * Time"],
             answer: "Principal * Rate * Time"
         },
-        10: {
+        11: {
             question: "What is the formula to calculate the compound interest?",
             options: ["Principal * Rate * Time", "Principal * (1 + Rate) ^ Time - Principal", "Principal * Rate * Time / 100", "(Principal + Rate) * Time"],
             answer: "Principal * (1 + Rate) ^ Time - Principal"
         },
-        11: {
+        12: {
             question: "Which of the following is a type of borrowing where the borrower puts up an asset as collateral?",
             options: ["Unsecured loan", "Mortgage", "Payday loan", "Secured loan"],
             answer: "Secured loan"
@@ -128,8 +133,8 @@ function submitQuiz() {
         }
     }
 
-    // Ensure the total score doesn't exceed 110
-    totalScore = Math.min(totalScore, 110);
+    // Ensure the total score doesn't exceed 120
+    totalScore = Math.min(totalScore, 120);
 
     const scoreElement = document.getElementById("score");
     if (!scoreElement) {
@@ -138,7 +143,7 @@ function submitQuiz() {
         document.body.appendChild(newScoreElement);
     }
 
-    scoreElement.textContent = `Your Score: ${totalScore}/110`;
+    scoreElement.textContent = `Your Score: ${totalScore}/120`;
 
     return false; // Prevents the default form submission behavior
 }
