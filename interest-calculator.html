@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interest Calculator</title>
+    <link rel="stylesheet" type="text/css" href="interest-calculator.css">
+    <script src="interest-calculator.js" defer></script>
+</head>
+<body>
+    <h1>Interest Calculator</h1>
+    <div class="calculator-container">
+        <div class="simple-calculator">
+            <h2>Simple Interest</h2>
+            <p>Enter the following details:</p>
+            <label for="simple-principal">Principal Amount:</label>
+            <input type="number" id="simple-principal" /><br><br>
+            <label for="simple-rate">Rate of Interest:</label>
+            <input type="number" id="simple-rate" /><br><br>
+            <label for="simple-time">Time Period (in months):</label>
+            <input type="number" id="simple-time" /><br><br>
+            <button id="calculate-simple-button">Calculate Simple Interest</button><br><br>
+            <p id="simple-interest"></p>
+            <p id="total-simple"></p>
+        </div>
+        <div class="compound-calculator">
+            <h2>Compound Interest</h2>
+            <p>Enter the following details:</p>
+            <label for="compound-principal">Principal Amount:</label>
+            <input type="number" id="compound-principal" /><br><br>
+            <label for="compound-rate">Rate of Interest:</label>
+            <input type="number" id="compound-rate" /><br><br>
+            <label for="compound-time">Time Period (in months):</label>
+            <input type="number" id="compound-time" /><br><br>
+            <label for="interest-applied">Compounding Frequency (per year):</label>
+            <input type="number" id="interest-applied" /><br><br>
+            <button id="calculate-compound-button">Calculate Compound Interest</button><br><br>
+            <p id="compound-interest"></p>
+            <p id="total-compound"></p>
+        </div>
+    </div>
+    <button onclick="window.location.href = 'finance.html';">Home</button><br><br>
+</body>
+</html>

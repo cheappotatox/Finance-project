@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rate/Percentage Calculator</title>
+    <link rel="stylesheet" type="text/css" href="rate-percentage-calculator.css">
+    <script src="rate-percentage-calculator.js" defer></script>
+</head>
+<body>
+    <h1>Rate/Percentage Calculator</h1>
+    <div class="calculator-container">
+        <div class="rate-calculator">
+            <h2>Rate</h2>
+            <p>Enter the following details:</p>
+            <label for="total-cost">Total Cost (Dollars):</label>
+            <input type="number" id="total-cost" /><br><br>
+            <label for="product-number">Number of Products:</label>
+            <input type="number" id="product-number" /><br><br>
+            <button id="calculate-rate-button">Calculate Rate</button><br><br>
+            <p id="per-product-cost"></p>
+        </div>
+        <div class="percentage-calculator">
+            <h2>Percentage Calculator</h2>
+            <p>Enter the following details:</p>
+            <label for="starting-amount">Starting Amount:</label>
+            <input type="number" id="starting-amount" /><br><br>
+            <label for="percentage-change">Percentage Change:</label>
+            <input type="text" id="percentage-change" /><br><br>
+            <button id="calculate-percentage-button">Calculate Percentage</button><br><br>
+            <div id="output"></div>
+        </div>
+    </div>
+    <button onclick="window.location.href = 'finance.html';">Home</button><br><br>
+</body>
+</html>
