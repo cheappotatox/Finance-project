@@ -11,59 +11,74 @@
         <h1>Budget Tracker</h1>
         <div class="category">
             <h2>Income</h2>
-            <label for="income-item">Item:</label>
-            <input type="text" id="income-item" placeholder="Enter item...">
-            <label for="income-amount">Planned Budget:</label>
-            <input type="number" id="income-amount" placeholder="Enter planned budget...">
-            <label for="income-actual">Actual Amount:</label>
-            <input type="number" id="income-actual" placeholder="Enter actual amount...">
-            <button id="add-income-btn">Add</button>
+            <div>
+                <label for="income-item">Item:</label>
+                <input type="text" id="income-item" placeholder="Enter item...">
+                <label for="income-amount">Planned Budget:</label>
+                <input type="number" id="income-amount" placeholder="Enter planned budget...">
+                <label for="income-actual">Actual Amount:</label>
+                <input type="number" id="income-actual" placeholder="Enter actual amount...">
+                <button id="add-income-btn">Add</button>
+            </div>
             <ul id="income-list"></ul>
         </div>
         <div class="category">
             <h2>Fixed Expenses</h2>
-            <label for="fixed-item">Item:</label>
-            <input type="text" id="fixed-item" placeholder="Enter item...">
-            <label for="fixed-amount">Planned Budget:</label>
-            <input type="number" id="fixed-amount" placeholder="Enter planned budget...">
-            <label for="fixed-actual">Actual Amount:</label>
-            <input type="number" id="fixed-actual" placeholder="Enter actual amount...">
-            <button id="add-fixed-btn">Add</button>
+            <div>
+                <label for="fixed-item">Item:</label>
+                <input type="text" id="fixed-item" placeholder="Enter item...">
+                <label for="fixed-amount">Planned Budget:</label>
+                <input type="number" id="fixed-amount" placeholder="Enter planned budget...">
+                <label for="fixed-actual">Actual Amount:</label>
+                <input type="number" id="fixed-actual" placeholder="Enter actual amount...">
+                <button id="add-fixed-btn">Add</button>
+            </div>
             <ul id="fixed-list"></ul>
         </div>
         <div class="category">
             <h2>Variable Expenses</h2>
-            <label for="variable-item">Item:</label>
-            <input type="text" id="variable-item" placeholder="Enter item...">
-            <label for="variable-amount">Planned Budget:</label>
-            <input type="number" id="variable-amount" placeholder="Enter planned budget...">
-            <label for="variable-actual">Actual Amount:</label>
-            <input type="number" id="variable-actual" placeholder="Enter actual amount...">
-            <button id="add-variable-btn">Add</button>
+            <div>
+                <label for="variable-item">Item:</label>
+                <input type="text" id="variable-item" placeholder="Enter item...">
+                <label for="variable-amount">Planned Budget:</label>
+                <input type="number" id="variable-amount" placeholder="Enter planned budget...">
+                <label for="variable-actual">Actual Amount:</label>
+                <input type="number" id="variable-actual" placeholder="Enter actual amount...">
+                <button id="add-variable-btn">Add</button>
+            </div>
             <ul id="variable-list"></ul>
         </div>
         <div id="totals">
             <h2>Totals</h2>
             <div>
+                <span>Category</span>
+                <span>Budget</span>
+                <span>Actual</span>
+                <span>Difference</span>
+            </div>
+            <div>
                 <span>Total Monthly Income:</span>
                 <span id="total-income">0</span>
-                <span id="total-income-difference"></span>
+                <span id="total-income-actual">0</span>
+                <span id="total-income-difference">0</span>
             </div>
             <div>
                 <span>Total Monthly Fixed Expenses:</span>
                 <span id="total-fixed">0</span>
-                <span id="total-fixed-difference"></span>
+                <span id="total-fixed-actual">0</span>
+                <span id="total-fixed-difference">0</span>
             </div>
             <div>
                 <span>Total Monthly Variable Expenses:</span>
                 <span id="total-variable">0</span>
-                <span id="total-variable-difference"></span>
+                <span id="total-variable-actual">0</span>
+                <span id="total-variable-difference">0</span>
             </div>
-        </div>
+        </div>        
     </div>
     <button onclick="window.location.href = 'finance.html';">Home</button><br><br>
 
-<script src="budget.js"></script>
+    <script src="budget.js"></script>
 
 </body>
 </html>
