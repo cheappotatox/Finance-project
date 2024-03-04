@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => {
                 console.error("Error fetching data:", error);
-                alert("Error fetching data. Please check the stock symbol and try again.");
+                alert("Error fetching data. Please check the stock symbol and try again. If stock symbol is correct, it looks like your 25 daily requests are up!");
             });
     });
 });
