@@ -16,7 +16,7 @@ document.getElementById("calculate-compound-button").addEventListener("click", f
     var time = parseFloat(document.getElementById("compound-time").value);
     var interestApplied = parseInt(document.getElementById("interest-applied").value);
 
-    var compoundInterest = principal * (Math.pow(1 + rate / (interestApplied / 12), (interestApplied / 12) * time)) - principal;
+    var compoundInterest = principal * (Math.pow(1 + rate / (interestApplied / 12), (interestApplied / 12) * time / 12)) - principal;
     var totalCompound = principal + compoundInterest;
 
     document.getElementById("compound-interest").innerHTML = "Compound Interest: " + compoundInterest.toFixed(2);
