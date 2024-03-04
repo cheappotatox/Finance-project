@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Market Tracker</title>
+    <link rel="stylesheet" href="stock-market.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Stock Market Tracker</h1>
+        <div class="form-group">
+            <label for="symbol">Enter Stock Symbol:</label>
+            <input type="text" id="symbol" placeholder="e.g., AAPL">
+            <button id="track-btn">Track</button>
+        </div>
+        <table id="stock-table">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Price</th>
+                    <th>Change</th>
+                    <th>% Change</th>
+                </tr>
+            </thead>
+            <tbody id="stock-data">
+                <!-- Stock data will be inserted here -->
+            </tbody>
+        </table>
+        <canvas id="stock-chart"></canvas>
+    </div>
+    <button class="home-btn" onclick="window.location.href='finance.html'">Home</button>
+    <script src="stock-market.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
