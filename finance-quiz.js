@@ -56,13 +56,13 @@ const quizData = {
     "Interest and Borrowing": {
         10: {
             question: "What is the formula to calculate simple interest?",
-            options: ["Principal * Rate * Time", "Principal * Time / Rate", "Rate * Time / Principal", "Rate * Principal * Time"],
+            options: ["(Principal * Rate * Time) / 100", "Principal * Time / Rate", "Rate * Time / Principal", "Rate * Principal * Time"],
             answer: "Principal * Rate * Time"
         },
         11: {
             question: "What is the formula to calculate the compound interest?",
-            options: ["Principal * Rate * Time", "Principal * (1 + Rate) ^ Time - Principal", "Principal * Rate * Time / 100", "(Principal + Rate) * Time"],
-            answer: "Principal * (1 + Rate) ^ Time - Principal"
+            options: ["Principal * Rate * Time", "Principal * (1 + Rate / n) ^ ((n)(Time)) - Principal", "Principal * Rate * Time / 100", "(Principal + Rate) * Time"],
+            answer: "Principal * (1 + Rate / n) ^ ((n)(Time))"
         },
         12: {
             question: "Which of the following is a type of borrowing where the borrower puts up an asset as collateral?",
